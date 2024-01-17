@@ -7,10 +7,49 @@
     <title>SkillUp</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./CSS/mentor-show-more.css">
     <link rel="stylesheet" href="./CSS/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light border-bottom border-body" data-bs-theme="light">
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand mx-2" href="./index.html">SkillUp</a> -->
+            <a href="./index.html"><img src="./images/skillup.png" height="120px"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./index.html">Mentors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Live sessions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Communtiy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./about.html">About</a>
+                    </li>
+                </ul>
+                <form class=" right-nav d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                </form>
+                <div class="mx-2">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signup">Login/Register</button>
+                </div>
+                <a href="#"><i class="fa-regular fa-circle-user fa-2x"></i></a>
+            </div>
+
+        </div>
+    </nav>
 
     <section class="bg-light">
         <div class="container">
@@ -18,21 +57,34 @@
                 <div class="col-lg-12 mb-4 mb-sm-5">
                     <div class="card card-style1 border-0">
                         <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
-                            <div class="row align-items-center">
-                                <div class="col-lg-6 mb-4 mb-lg-0">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="...">
+                            <div class=" profile-container_s row align-items-center">
+                                <div class="col-lg-4 mb-4 mb-lg-0">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="..."
+                                        loading="lazy">
                                 </div>
-                                <div class="col-lg-6 px-xl-10">
+                                <div class="col-lg-8 px-xl-10">
                                     <div class="name_s">
                                         <h3 class="h2 text-black mb-0">John mark Doe Kyzer</h3>
-                                        <span class="text-primary">Coach</span>
+                                        <!-- <span class="text-primary">Coach</span> -->
                                     </div>
                                     <ul class="list-unstyled mb-1-9">
-                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Position:</span> Coach</li>
-                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Experience:</span> 10 Years</li>
-                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email:</span> edith@mail.com</li>
-                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Website:</span> www.example.com</li>
-                                        <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone:</span> 507 - 541 - 4567</li>
+                                        <li class="mb-2 mb-xl-3 display-28"><span
+                                                class="display-26 text-primary me-2 font-weight-600">Position:</span>
+                                            Coach</li>
+                                        <li class="mb-2 mb-xl-3 display-28"><span
+                                                class="display-26 text-primary me-2 font-weight-600">Experience:</span>
+                                            10 Years</li>
+                                        <li class="mb-2 mb-xl-3 display-28"><span
+                                                class="display-26 text-primary me-2 font-weight-600">About Me:</span>
+                                        </li>
+                                        <li class="mb-2 mb-xl-3 display-28"><span
+                                                class="display-26 text-secondary me-2 font-weight-600">Lorem ipsum
+                                                dolor,
+                                                sit amet consectetur adipisicing elit. Quod, ipsa explicabo error
+                                                placeat inventore excepturi, ea officiis facere saepe corrupti aperiam
+                                                neque voluptas nostrum non voluptatibus reprehenderit perferendis rerum
+                                                nemo dignissimos. Omnis ullam aspernatur neque amet odio commodi error
+                                                officiis.</span></li>
                                     </ul>
                                     <ul class="social-icon-style1 list-unstyled mb-0 ps-0">
                                         <li><a href="#!"><i class="ti-twitter-alt"></i></a></li>
@@ -45,74 +97,247 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12 mb-4 mb-sm-5">
-                    <div>
-                        <span class="section-title text-primary mb-3 mb-sm-4">About Me</span>
-                        <p>Edith is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        <p class="mb-0">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed.</p>
-                    </div>
-                </div>
                 <div class="col-lg-12">
                     <div class="row">
                         <div class="col-lg-12 mb-4 mb-sm-5">
-                            <div class="mb-4 mb-sm-5">
-                                <span class="section-title text-primary mb-3 mb-sm-4">Skill</span>
-                                <div class="progress-text">
-                                    <div class="row">
-                                        <div class="col-6">Driving range</div>
-                                        <div class="col-6 text-end">80%</div>
+                            <div>
+                                <span class="section-title text-primary mb-3 mb-sm-4">Educational Qualifications</span>
+                                <div class="educational-container_s">
+                                    <div class="card" style="width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Senior Seconodary</h5>
+                                            <h6 class="card-subtitle mb-2 text-body-secondary">Grade A</h6>
+                                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Voluptate unde totam facilis dolor, debitis ea, praesentium
+                                                tempore vel aperiam commodi velit ut suscipit distinctio ratione.</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="custom-progress progress progress-medium mb-3" style="height: 4px;">
-                                    <div class="animated custom-bar progress-bar slideInLeft bg-secondary" style="width:80%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="10" role="progressbar"></div>
-                                </div>
-                                <div class="progress-text">
-                                    <div class="row">
-                                        <div class="col-6">Short Game</div>
-                                        <div class="col-6 text-end">90%</div>
+                                    <div class="card" style="width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">B.Tech</h5>
+                                            <h6 class="card-subtitle mb-2 text-body-secondary">8.4 CGPA</h6>
+                                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Voluptate unde totam facilis dolor, debitis ea, praesentium
+                                                tempore vel aperiam commodi velit ut suscipit distinctio ratione.</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="custom-progress progress progress-medium mb-3" style="height: 4px;">
-                                    <div class="animated custom-bar progress-bar slideInLeft bg-secondary" style="width:90%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" role="progressbar"></div>
-                                </div>
-                                <div class="progress-text">
-                                    <div class="row">
-                                        <div class="col-6">Side Bets</div>
-                                        <div class="col-6 text-end">50%</div>
+                                    <div class="card" style="width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">M.Tech</h5>
+                                            <h6 class="card-subtitle mb-2 text-body-secondary">9.14 CGPA</h6>
+                                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Voluptate unde totam facilis dolor, debitis ea, praesentium
+                                                tempore vel aperiam commodi velit ut suscipit distinctio ratione.</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="custom-progress progress progress-medium mb-3" style="height: 4px;">
-                                    <div class="animated custom-bar progress-bar slideInLeft bg-secondary" style="width:50%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" role="progressbar"></div>
-                                </div>
-                                <div class="progress-text">
-                                    <div class="row">
-                                        <div class="col-6">Putting</div>
-                                        <div class="col-6 text-end">60%</div>
+                                    <div class="card" style="width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">MBA</h5>
+                                            <h6 class="card-subtitle mb-2 text-body-secondary">8.86 CGPA</h6>
+                                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Voluptate unde totam facilis dolor, debitis ea, praesentium
+                                                tempore vel aperiam commodi velit ut suscipit distinctio ratione.</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="custom-progress progress progress-medium" style="height: 4px;">
-                                    <div class="animated custom-bar progress-bar slideInLeft bg-secondary" style="width:60%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" role="progressbar"></div>
                                 </div>
                             </div>
                             <div>
-                                <span class="section-title text-primary mb-3 mb-sm-4">Education</span>
-                                <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</p>
-                                <p class="mb-1-9">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-                  
+                                <span class="section-title text-primary mb-3 mb-sm-4">Work Expreriences</span>
+                                <div class="experience-container_s">
+                                    <div class="card" style="width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Microsoft</h5>
+                                            <h6 class="card-subtitle mb-2 text-body-secondary">Junior SDE Inern</h6>
+                                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Voluptate unde totam facilis dolor, debitis ea, praesentium
+                                                tempore vel aperiam commodi velit ut suscipit distinctio ratione.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card" style="width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Byjus</h5>
+                                            <h6 class="card-subtitle mb-2 text-body-secondary">Senior SDE Intern</h6>
+                                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Voluptate unde totam facilis dolor, debitis ea, praesentium
+                                                tempore vel aperiam commodi velit ut suscipit distinctio ratione.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card" style="width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Zomato</h5>
+                                            <h6 class="card-subtitle mb-2 text-body-secondary">Data Analyst</h6>
+                                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Voluptate unde totam facilis dolor, debitis ea, praesentium
+                                                tempore vel aperiam commodi velit ut suscipit distinctio ratione.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card" style="width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Google</h5>
+                                            <h6 class="card-subtitle mb-2 text-body-secondary">SDE 1</h6>
+                                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Voluptate unde totam facilis dolor, debitis ea, praesentium
+                                                tempore vel aperiam commodi velit ut suscipit distinctio ratione.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div>
                                 <span class="section-title text-primary mb-3 mb-sm-4">Mentorship programs</span>
-                                
+                                <div class="mentorship-container_s">
+                                    <div class="card mb-3" style="max-width: 80vw;">
+                                        <div class="row g-0">
+                                            <div class="col-md-3">
+                                                <img src="https://source.unsplash.com/300x300/?java,coding"
+                                                    loading="lazy" class="img-fluid rounded-start" alt="...">
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Java Jenix</h5>
+                                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur
+                                                        adipisicing
+                                                        elit. Laboriosam harum doloremque illo similique veritatis,
+                                                        sequi a
+                                                        voluptate vel tempora assumenda quas officia, blanditiis eos cum
+                                                        perspiciatis magni esse nisi excepturi. Repudiandae, consequatur
+                                                        doloribus assumenda ad necessitatibus, iusto repellat impedit
+                                                        rerum,
+                                                        nihil sit eligendi dolore facilis dolor eos amet rem distinctio
+                                                        nostrum neque nobis illo vel nam? Architecto quae error
+                                                        doloribus!
+                                                    </p>
+                                                    <button type="button" class="btn btn-primary">Enroll now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3" style="max-width: 80vw;">
+                                        <div class="row g-0">
+                                            <div class="col-md-3">
+                                                <img src="https://source.unsplash.com/300x300/?java,coding"
+                                                    loading="lazy" class="img-fluid rounded-start" alt="...">
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Java Jenix</h5>
+                                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur
+                                                        adipisicing
+                                                        elit. Laboriosam harum doloremque illo similique veritatis,
+                                                        sequi a
+                                                        voluptate vel tempora assumenda quas officia, blanditiis eos cum
+                                                        perspiciatis magni esse nisi excepturi. Repudiandae, consequatur
+                                                        doloribus assumenda ad necessitatibus, iusto repellat impedit
+                                                        rerum,
+                                                        nihil sit eligendi dolore facilis dolor eos amet rem distinctio
+                                                        nostrum neque nobis illo vel nam? Architecto quae error
+                                                        doloribus!
+                                                    </p>
+                                                    <button type="button" class="btn btn-primary">Enroll now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3" style="max-width: 80vw;">
+                                        <div class="row g-0">
+                                            <div class="col-md-3">
+                                                <img src="https://source.unsplash.com/300x300/?java,coding"
+                                                    loading="lazy" class="img-fluid rounded-start" alt="...">
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Java Jenix</h5>
+                                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur
+                                                        adipisicing
+                                                        elit. Laboriosam harum doloremque illo similique veritatis,
+                                                        sequi a
+                                                        voluptate vel tempora assumenda quas officia, blanditiis eos cum
+                                                        perspiciatis magni esse nisi excepturi. Repudiandae, consequatur
+                                                        doloribus assumenda ad necessitatibus, iusto repellat impedit
+                                                        rerum,
+                                                        nihil sit eligendi dolore facilis dolor eos amet rem distinctio
+                                                        nostrum neque nobis illo vel nam? Architecto quae error
+                                                        doloribus!
+                                                    </p>
+                                                    <button type="button" class="btn btn-primary">Enroll now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
+        </div>
     </section>
 
-    <div class="cards-container_s">
+    <div class="container footer-container_s">
+        <footer class="py-5">
+            <div class="row">
+                <div class="col-6 col-md-2 mb-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Call us</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Email</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">LinkedIn</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Facebook</a></li>
+                    </ul>
+                </div>
 
+                <div class="col-6 col-md-2 mb-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Help centre</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Jobs</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Cookie
+                                preferences</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Legal Notices</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-2 mb-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Media centre</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Terms of use</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Privacy</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-5 offset-md-1 mb-3">
+                    <form>
+                        <h5>Subscribe to our newsletter</h5>
+                        <p>Monthly digest of what's new and exciting from us.</p>
+                        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                            <label for="newsletter1" class="visually-hidden">Email address</label>
+                            <input id="newsletter1" type="text" class="form-control" placeholder="Email address"
+                                fdprocessedid="ae5lz3k">
+                            <button class="btn btn-primary" type="button" fdprocessedid="om92kb">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                <p>© 2023 SkillUp, Inc. All rights reserved.</p>
+                <ul class="list-unstyled d-flex">
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
+                                <use xlink:href="#twitter"></use>
+                            </svg></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
+                                <use xlink:href="#instagram"></use>
+                            </svg></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
+                                <use xlink:href="#facebook"></use>
+                            </svg></a></li>
+                </ul>
+            </div>
+        </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

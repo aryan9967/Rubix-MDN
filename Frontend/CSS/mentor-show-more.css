@@ -133,3 +133,9 @@ section {
 .py-5{
     padding-bottom: 0 !important;
 }
+
+.create-session-container_s{
+    margin-right: 150px;
+    position: absolute;
+    right: 0;
+}

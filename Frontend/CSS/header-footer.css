@@ -10,11 +10,17 @@ nav li{
 }
 
 nav{
-    height: 80px;
+    font-size: 2.5vh;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     position: fixed;
     top: 0;
     left: 0;
-    font-size: 2.5vh;
+    max-height: 12vh;
+    z-index: 100;
+}
+.main_screen{
+    overflow: auto;
+    max-height: 88vh;
 }
 
 .footer-container_s{
@@ -28,3 +34,7 @@ nav{
   .py-5{
     padding-bottom: 0 !important;
   }
+body{
+  height: 100vh;
+  overflow: hidden;
+}

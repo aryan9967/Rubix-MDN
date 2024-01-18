@@ -1,0 +1,69 @@
+nav{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.ment_container{
+    width: 70vw;
+    margin: auto;
+}
+#experience_det{
+    display: none;
+}
+#resume{
+    display: none;
+}
+#education{
+    display: none;
+}
+.pfp{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+}
+.personal_det_container{
+    display: flex;
+}
+.size_font{
+    font-size: 2.3vh;
+}
+.exp_container{
+    display: flex;
+}
+.btn_width{
+    width: 10vw;
+}
+.button_position{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
+.offer_form{
+    width: 30vw;
+    height: 50vh;
+    position: fixed;
+    z-index: 1;
+    top: 25vh;
+    left: 35vw;
+    display: none;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.close_btn_a{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.inp_wid{
+    width: 100%;
+}
+.text_a{
+    resize: none;
+    height: 100px;
+}

@@ -1,0 +1,3 @@
+sms: {
+    enabled: false
+}

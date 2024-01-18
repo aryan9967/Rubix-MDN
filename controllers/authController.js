@@ -41,7 +41,7 @@ export const menteesRegisterController = async (req, res) => {
       //existing user
       const querySnapshot = await db
         .collection(process.env.menteesCollectionName)
-        .where('email', '==', email)
+        .where('username', '==', username)
         .get();
       if (!querySnapshot.empty) {
         return res.status(200).send({

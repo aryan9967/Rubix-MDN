@@ -5,6 +5,10 @@ import cors from 'cors';
 import {} from './DB/firebase.js';
 import authRoutes from './routes/authRoute.js';
 import adminRoute from './routes/adminRoute.js';
+import userRoute from './routes/userRoute.js';
+import sessionRoute from './routes/sessionRoute.js';
+import subscriptionRoute from './routes/subscriptionRoute.js';
+import path from 'path'
 
 // configure env
 dotenv.config();
@@ -20,6 +24,9 @@ app.use(express.json());
 // routes
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/admin', adminRoute);
+app.use('/api/v1/user', userRoute);
+app.use('/api/v1/session', sessionRoute);
+app.use('/api/v1/subscription', subscriptionRoute);
 
 // rest api
 app.get('/', (req, res) => {

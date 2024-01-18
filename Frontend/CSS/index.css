@@ -124,3 +124,38 @@ nav{
         width: 30rem;
     }
   }
+  /* webinar page css */
+  
+  .interactive-button {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid #1c2b62;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1c2b62;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.25s ease 0s;
+  }
+  
+  .interactive-button:hover,
+  .interactive-button:focus {
+    background: #1c2b62;
+    color: #fff;
+  }
+
+        .session-card {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .session-card h2 {
+            color: #333;
+        }
+
+        .session-info {
+            margin-top: 10px;
+            color: #666;
+        }

@@ -1,4 +1,4 @@
-<!doctype html>
+
 <html lang="en">
 
 <head>
@@ -9,7 +9,10 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="./CSS/mentor-show-more.css">
     <link rel="stylesheet" href="./CSS/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./CSS/header-footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -26,37 +29,43 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./index.html">Mentors</a>
+                        <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Live sessions</a>
+                        <a class="nav-link" aria-current="page" href="./subscription.html">My sessions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Communtiy</a>
+                        <a class="nav-link" aria-current="page" href="./index.html">Live sessions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./community.html">Communtiy</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="./about.html">About</a>
                     </li>
+
                 </ul>
                 <form class=" right-nav d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                    <button class="btn btn-outline-primary" type="submit"><i
+                            class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
                 <div class="mx-2">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signup">Login/Register</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#signup">Login/Register</button>
                 </div>
                 <a href="#"><i class="fa-regular fa-circle-user fa-2x"></i></a>
             </div>
 
         </div>
     </nav>
-
-    <section >
+    <section>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 mb-4 mb-sm-5">
                     <div class="card card-style1 border-0">
                         <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+                            
                             <div class=" profile-container_s row align-items-center">
                                 <div class="col-lg-4 mb-4 mb-lg-0">
                                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="..."
@@ -206,6 +215,8 @@
                                                         nostrum neque nobis illo vel nam? Architecto quae error
                                                         doloribus!
                                                     </p>
+                                                    <p class="card-text"><small class="text-body-secondary"><i class="fa-solid fa-calendar-check"></i>&nbsp;10 interactions of 1 hour each</small></p>
+                                                    <p class="card-text"><small class="text-body-secondary"><i class="fa-solid fa-indian-rupee-sign"></i>&nbsp;4000</small></p>
                                                     <button type="button" class="btn btn-primary">Enroll now</button>
                                                 </div>
                                             </div>
@@ -232,6 +243,8 @@
                                                         nostrum neque nobis illo vel nam? Architecto quae error
                                                         doloribus!
                                                     </p>
+                                                    <p class="card-text"><small class="text-body-secondary"><i class="fa-solid fa-calendar-check"></i>&nbsp;10 interactions of 1 hour each</small></p>
+                                                    <p class="card-text"><small class="text-body-secondary"><i class="fa-solid fa-indian-rupee-sign"></i>&nbsp;4000</small></p>
                                                     <button type="button" class="btn btn-primary">Enroll now</button>
                                                 </div>
                                             </div>
@@ -258,11 +271,23 @@
                                                         nostrum neque nobis illo vel nam? Architecto quae error
                                                         doloribus!
                                                     </p>
+                                                    <p class="card-text"><small class="text-body-secondary"><i class="fa-solid fa-calendar-check"></i>&nbsp;10 interactions of 1 hour each</small></p>
+                                                    <p class="card-text"><small class="text-body-secondary"><i class="fa-solid fa-indian-rupee-sign"></i>&nbsp;4000</small></p>
                                                     <button type="button" class="btn btn-primary">Enroll now</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="create-session-container_s">
+                                    <button type="button" class="btn btn-primary create-session_s"
+                                        data-bs-toggle="modal" data-bs-target="#new-program">
+                                        New Program <i class="fa-solid fa-plus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-primary create-session_s"
+                                        data-bs-toggle="modal" data-bs-target="#new-webinar">
+                                        New Webinar <i class="fa-solid fa-plus"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -270,7 +295,111 @@
                 </div>
             </div>
         </div>
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="new-program" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header ">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Create new program</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Title</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                placeholder="Title goes here">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Select a thumbnail</label>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="mb-3">
+                            <label for="numOfHours" class="form-label">Number of interactions</label>
+                            <input type="number" class="form-control" id="numOfHours">
+                        </div>
+                        <div class="mb-3">
+                            <label for="numOfHour" class="form-label">Duration in hours</label>
+                            <input type="number" placeholder="Duration of each interaction" class="form-control" id="numOfHour">
+                        </div>
+                        <div class="mb-3">
+                            <label for="modeOfSession" class="form-label">Interaction type</label>
+                            <select class="form-select" aria-label="modeOfSession">
+                                <option value="1">Weekly</option>
+                                <option value="1">Monthly</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="numOf" class="form-label">Price</label>
+                            <input type="number" placeholder="In INR" class="form-control" id="numOf">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
+                        <button type="button" class="btn btn-primary">Create</button>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="modal fade" id="new-webinar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Schedule new webinar</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Title</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                placeholder="Title goes here">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Select a thumbnail</label>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="mb-3">
+                            <label for="dateOfSession" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="dateOfSession">
+                        </div>
+                        <div class="mb-3">
+                            <label for="timeOfSession" class="form-label">Time onwards</label>
+                            <input type="time" class="form-control" id="timeOfSession">
+                        </div>
+                        <div class="mb-3">
+                            <label for="numO" class="form-label">To</label>
+                            <input type="time" class="form-control" id="numO">
+                        </div>
+                        <div class="mb-3">
+                            <label for="modeOfSession" class="form-label">Mode of session</label>
+                            <select class="form-select" aria-label="modeOfSession">
+                                <option selected>Free</option>
+                                <option value="1">Paid</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="xrt" class="form-label">Price</label>
+                            <input type="number" class="form-control" id="xrt">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
+                        <button type="button" class="btn btn-primary">Create</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -323,7 +452,7 @@
                 </div>
             </div>
 
-            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+            <div class="d-flex flex-column flex-sm-row justify-content-between my-4 border-top">
                 <p>© 2023 SkillUp, Inc. All rights reserved.</p>
                 <ul class="list-unstyled d-flex">
                     <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">

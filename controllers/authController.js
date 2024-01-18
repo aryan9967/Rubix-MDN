@@ -2,9 +2,13 @@ import { admin } from "../DB/firestore.js";
 const db = admin.firestore();
 import { fapp } from "../DB/firebase.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+
+import { createData } from "../helper/crud.js";
 // import * as admin from 'firebase-admin';
 import { comparePassword, hashPassword } from '../helper/authHelper.js';
+import mime from 'mime';
 import multer from 'multer';
+
 
 // Initialize multer for handling file uploads
 const upload = multer();
@@ -62,7 +66,7 @@ export const menteesRegisterController = async (req, res) => {
         address: address,
         age: age,
         preference: preference,
-        subscribed: 0,
+        subscribed: [],
         role: 0,
       };
       const userId = username; // Use email as the document ID
@@ -74,7 +78,8 @@ export const menteesRegisterController = async (req, res) => {
         });
       }
   
-      await db.collection(process.env.menteesCollectionName).doc(userId).set(userJson);
+      // await db.collection(process.env.menteesCollectionName).doc(userId).set(userJson);
+      createData(process.env.menteesCollectionName, userId, userJson);
       console.log('success');
   
       return res.status(201).send({
@@ -111,6 +116,9 @@ export const menteesRegisterController = async (req, res) => {
           experience,
         } = req.body;
         const resume = req.file;
+        const extension = mime.getExtension(req.file.mimetype);
+        console.log(req.file.originalname);
+        console.log(username);
         // console.log("req.body: ", req.body);
         // console.log("req.file: ", req.file);
   
@@ -156,8 +164,6 @@ export const menteesRegisterController = async (req, res) => {
 
       // Upload resume file to Firebase Storage
       // await uploadBytes(fileRef, resume.buffer, metadata);
-
-      console.log('a uploadbytes');
 
       // Get the download URL for the uploaded resume
       // const resumeURL = await getDownloadURL(fileRef);
@@ -213,7 +219,10 @@ export const menteesRegisterController = async (req, res) => {
         // });
 
         const bucket = admin.storage().bucket();
-        const file = bucket.file(req.file.originalname);
+        const folderPath = 'resume';
+        const fileName = username+'.'+extension;
+        const filePath = `${folderPath}/${fileName}`;
+        const file = bucket.file(filePath);
         const stream = file.createWriteStream({
           metadata: {
             contentType: 'application/pdf'
@@ -225,7 +234,13 @@ export const menteesRegisterController = async (req, res) => {
         });
 
         stream.on("finish", () => {
-          res.status(200).send("File uploaded successfully");
+          res.status(200).send({
+            success: true,
+            message: 'Mentor Registered successfully',
+            mentor: {userJson
+            },
+            filePath: filePath,
+          });
         });
 
         stream.end(req.file.buffer);

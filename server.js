@@ -21,6 +21,10 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+// Serve static files from the 'frontend' folder
+app.use(express.static(path.join(path.resolve(), 'Frontend')));
+
 // routes
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/admin', adminRoute);
@@ -37,8 +41,27 @@ app.get('/', (req, res) => {
   }
 });
 
+
 // PORT
 const PORT = process.env.PORT || 8080;
+
+
+
+// app.get('/CSS/index.css', function(req, res) {
+// });
+
+// app.get('/', function(req, res) {
+
+//   res.sendFile(path.join(path.resolve()+'/Frontend/index.html'));
+//   // res.sendFile(path.resolve() + "/" + "index.css");
+
+// });
+
+// route for serving HTML file
+app.get('/', function (req, res) {
+  res.sendFile('index.html');
+});
+
 
 // Listens
 app.listen(PORT, () => {

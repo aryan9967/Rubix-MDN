@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>skillup</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link rel="stylesheet" href="./CSS/index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./CSS/mentor-show-more.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="./CSS/index.css">
+    <link rel="stylesheet" href="./CSS/header-footer.css"> -->
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light border-bottom border-body" data-bs-theme="light">
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand mx-2" href="./index.html">SkillUp</a> -->
+            <a href="./index.html" ><img style="left: 4rem; top: 4rem;" src="./images/skillup.png" height="120px"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./index.html">Mentors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./index.html">Live sessions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./about.html">Communtiy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./about.html">About</a>
+                    </li>
+                </ul>
+                <form class=" right-nav d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                </form>
+                <div class="mx-2">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signup">Login/Register</button>
+                </div>
+                <a href="#"><i class="fa-regular fa-circle-user fa-2x"></i></a>
+            </div>
+
+        </div>
+    </nav>
+    <!-- <header>
+        <h1>Webinar Page</h1>
+    </header>
+
+    <div class="mentor-card">
+        <div class="mentor-details">
+            <img src="mentor-photo.jpg" alt="Mentor Photo">
+            <h2>Mentor Name</h2>
+            <p>Mentor Information Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+    </div> -->
+
+    <!-- mentor profile -->
+    <div class="col-lg-12 mb-4 mb-sm-5 ">
+        <div class="card1 card-style1 border-0">
+            <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7 ml-3">
+                
+                <div class=" profile-container_s row align-items-center ">
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="..."
+                            loading="lazy">
+                    </div>
+                    <div class="col-lg-8 px-xl-10">
+                        <div class="name_s">
+                            <h3 class="h2 text-black mb-0">John mark Doe Kyzer</h3>
+                            <!-- <span class="text-primary">Coach</span> -->
+                        </div>
+                        <ul class="list-unstyled mb-1-9">
+                            <li class="mb-2 mb-xl-3 display-28"><span
+                                    class="display-26 text-primary me-2 font-weight-600">Position:</span>
+                                Coach</li>
+                            <li class="mb-2 mb-xl-3 display-28"><span
+                                    class="display-26 text-primary me-2 font-weight-600">Experience:</span>
+                                10 Years</li>
+                            <li class="mb-2 mb-xl-3 display-28"><span
+                                    class="display-26 text-primary me-2 font-weight-600">About Me:</span>
+                            </li>
+                            <li class="mb-2 mb-xl-3 display-28"><span
+                                    class="display-26 text-secondary me-2 font-weight-600">Lorem ipsum
+                                    dolor,
+                                    sit amet consectetur adipisicing elit. Quod, ipsa explicabo error
+                                    placeat inventore excepturi, ea officiis facere saepe corrupti aperiam
+                                    neque voluptas nostrum non voluptatibus reprehenderit perferendis rerum
+                                    nemo dignissimos. Omnis ullam aspernatur neque amet odio commodi error
+                                    officiis.</span></li>
+                        </ul>
+                        <ul class="social-icon-style1 list-unstyled mb-0 ps-0">
+                            <li><a href="#!"><i class="ti-twitter-alt"></i></a></li>
+                            <li><a href="#!"><i class="ti-facebook"></i></a></li>
+                            <li><a href="#!"><i class="ti-pinterest"></i></a></li>
+                            <li><a href="#!"><i class="ti-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <span class="section-title1 text-primary ml-3 mb-3 mb-sm-4">Enroll for the free session</span>
+    <div class="mentorship-container_s">
+        <div class="card mb-3" style="max-width: 80vw;">
+            <div class="row g-0">
+                <div class="col-md-3">
+                    <img src="https://source.unsplash.com/300x300/?java,coding"
+                        loading="lazy" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body">
+                        <h5 class="card-title">Java Jenix</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur
+                            adipisicing
+                            elit. Laboriosam harum doloremque illo similique veritatis,
+                            sequi a
+                            voluptate vel tempora assumenda quas officia, blanditiis eos cum
+                            perspiciatis magni esse nisi excepturi. Repudiandae, consequatur
+                            doloribus assumenda ad necessitatibus, iusto repellat impedit
+                            rerum,
+                            nihil sit eligendi dolore facilis dolor eos amet rem distinctio
+                            nostrum neque nobis illo vel nam? Architecto quae error
+                            doloribus!
+                        </p>
+                        <button type="button" class="btn btn-primary" onclick="redirectToSessionPage()">Enroll now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3" style="max-width: 80vw;">
+            <div class="row g-0">
+                <div class="col-md-3">
+                    <img src="https://source.unsplash.com/300x300/?java,coding"
+                        loading="lazy" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body">
+                        <h5 class="card-title">Java Jenix</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur
+                            adipisicing
+                            elit. Laboriosam harum doloremque illo similique veritatis,
+                            sequi a
+                            voluptate vel tempora assumenda quas officia, blanditiis eos cum
+                            perspiciatis magni esse nisi excepturi. Repudiandae, consequatur
+                            doloribus assumenda ad necessitatibus, iusto repellat impedit
+                            rerum,
+                            nihil sit eligendi dolore facilis dolor eos amet rem distinctio
+                            nostrum neque nobis illo vel nam? Architecto quae error
+                            doloribus!
+                        </p>
+                        <button type="button" class="btn btn-primary">Enroll now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3" style="max-width: 80vw;">
+            <div class="row g-0">
+                <div class="col-md-3">
+                    <img src="https://source.unsplash.com/300x300/?java,coding"
+                        loading="lazy" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body">
+                        <h5 class="card-title">Java Jenix</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur
+                            adipisicing
+                            elit. Laboriosam harum doloremque illo similique veritatis,
+                            sequi a
+                            voluptate vel tempora assumenda quas officia, blanditiis eos cum
+                            perspiciatis magni esse nisi excepturi. Repudiandae, consequatur
+                            doloribus assumenda ad necessitatibus, iusto repellat impedit
+                            rerum,
+                            nihil sit eligendi dolore facilis dolor eos amet rem distinctio
+                            nostrum neque nobis illo vel nam? Architecto quae error
+                            doloribus!
+                        </p>
+                        <button type="button" class="btn btn-primary">Enroll now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <button class="interactive-button" onclick="startInteractiveSession()">Start Interactive Session</button> -->
+
+
+    <!-- <div class="session-card">
+        <h2>Webinar Session Information</h2>
+        <div class="session-info">
+            <p><strong>Date:</strong> January 20, 2024</p>
+            <p><strong>Time:</strong> 2:00 PM - 4:00 PM</p>
+            <p><strong>Topic:</strong> Interactive Web Design</p>
+        </div>
+        <button class="interactive-button" onclick="startInteractiveSession()">Start Interactive Session</button>
+    </div> -->
+
+    <script>
+        function startInteractiveSession() {
+            // Add your interactive code here
+            alert('Interactive session started!');
+            window.location.href = "session.html";
+            
+        }
+        function redirectToSessionPage(){
+            window.location.href = "session.html";
+        }
+    </script>
+    
+
+</body>
+</html>

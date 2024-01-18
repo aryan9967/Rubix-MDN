@@ -140,6 +140,7 @@ export const listMentorsController = async (req, res) => {
           // console.error('Preference is not an object:', mentorSnapshot.preference);
         }
         
+        
       }
 
       //Retrieve user data

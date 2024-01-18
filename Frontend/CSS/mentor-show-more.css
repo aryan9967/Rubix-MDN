@@ -17,6 +17,21 @@ body{margin-top:0px; margin-bottom: 0;}
     border-radius: 0.25rem;
 }
 
+.card1{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    /* background-color: #F8F9FA;  */
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+
+    margin-left: 80px;
+
+}
+
 section {
     /* padding: 120px 0; */
     overflow: hidden;
@@ -34,6 +49,17 @@ section {
     position: relative;
     display: inline-block;
 }
+
+.section-title1{
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+    margin-left: 80px;
+}
+
 .text-primary {
     color: #ceaa4d !important;
 }
@@ -114,8 +140,21 @@ section {
 
 .mentorship-container_s{
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    /* flex-direction: column; */
     align-items: center;
+}
+.mentorship-container_s1{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    /* flex-direction: column; */
+    align-items: center;
+    margin-left: 30px;
+
 }
 
 .profile-container_s{
@@ -129,4 +168,10 @@ section {
 
 .py-5{
     padding-bottom: 0 !important;
+}
+
+.create-session-container_s{
+    margin-right: 150px;
+    position: absolute;
+    right: 0;
 }

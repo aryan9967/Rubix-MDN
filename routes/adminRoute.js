@@ -1,7 +1,6 @@
 import express from 'express';
 import {
     approveMentorController,
-    createOfferController,
     unapprovedMentorsController
 } from '../controllers/adminController.js';
 
@@ -18,9 +17,6 @@ const router = express.Router();
 router.post('/unapproved-mentors', unapprovedMentorsController);
 router.post('/approve-mentor', approveMentorController);
 
-
-//Offers 
-router.post('/create-offer', createOfferController);
 
 
 export default router;

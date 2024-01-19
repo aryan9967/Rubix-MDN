@@ -171,7 +171,5 @@ section {
 }
 
 .create-session-container_s{
-    margin-right: 150px;
-    position: absolute;
-    right: 0;
+    margin-left: 10vw;
 }

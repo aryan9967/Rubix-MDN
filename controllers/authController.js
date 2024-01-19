@@ -2,12 +2,10 @@ import { admin } from "../DB/firestore.js";
 const db = admin.firestore();
 import { fapp } from "../DB/firebase.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { createData } from "../helper/crud.js";
 // import * as admin from 'firebase-admin';
 import { comparePassword, hashPassword } from '../helper/authHelper.js';
-import mime from 'mime';
 import multer from 'multer';
-
+import mime from 'mime';
 
 // Initialize multer for handling file uploads
 const upload = multer();
@@ -44,7 +42,7 @@ export const menteesRegisterController = async (req, res) => {
       //existing user
       const querySnapshot = await db
         .collection(process.env.menteesCollectionName)
-        .where('email', '==', email)
+        .where('username', '==', username)
         .get();
       if (!querySnapshot.empty) {
         return res.status(200).send({
@@ -65,7 +63,7 @@ export const menteesRegisterController = async (req, res) => {
         address: address,
         age: age,
         preference: preference,
-        subscribed: [],
+        subscribed: 0,
         role: 0,
       };
       const userId = username; // Use email as the document ID
@@ -77,8 +75,7 @@ export const menteesRegisterController = async (req, res) => {
         });
       }
   
-      // await db.collection(process.env.menteesCollectionName).doc(userId).set(userJson);
-      createData(process.env.menteesCollectionName, userId, userJson);
+      await db.collection(process.env.menteesCollectionName).doc(userId).set(userJson);
       console.log('success');
   
       return res.status(201).send({
@@ -109,15 +106,15 @@ export const menteesRegisterController = async (req, res) => {
           email,
           password,
           contact,
+          description,
+          education,
+          education_desc,
           address,
           age,
           profession,
           experience,
         } = req.body;
         const resume = req.file;
-        const extension = mime.getExtension(req.file.mimetype);
-        console.log(req.file.originalname);
-        console.log(username);
         // console.log("req.body: ", req.body);
         // console.log("req.file: ", req.file);
   
@@ -135,6 +132,15 @@ export const menteesRegisterController = async (req, res) => {
         }
         if (!contact) {
           return res.send({ message: 'Contact is required' });
+        }
+        if (!description) {
+          return res.send({ message: 'Description is required' });
+        }
+        if (!education) {
+          return res.send({ message: 'Description is required' });
+        }
+        if (!education_desc) {
+          return res.send({ message: 'Address is required' });
         }
         if (!address) {
           return res.send({ message: 'Address is required' });
@@ -164,6 +170,8 @@ export const menteesRegisterController = async (req, res) => {
       // Upload resume file to Firebase Storage
       // await uploadBytes(fileRef, resume.buffer, metadata);
 
+      console.log('a uploadbytes');
+
       // Get the download URL for the uploaded resume
       // const resumeURL = await getDownloadURL(fileRef);
 
@@ -172,7 +180,7 @@ export const menteesRegisterController = async (req, res) => {
         // Check for existing user
         const querySnapshot = await db
           .collection(process.env.mentorsCollectionName)
-          .where('email', '==', email)
+          .where('username', '==', username)
           .get();
         if (!querySnapshot.empty) {
           return res.status(200).send({
@@ -184,18 +192,52 @@ export const menteesRegisterController = async (req, res) => {
         // Register user in Firestore
         const hashedPassword = await hashPassword(password);
   
+        
+
+        const mimeType = req.file.mimetype;
+
+        // Get the file extension
+        const fileExtension = mime.getExtension(mimeType);
+        const bucket = admin.storage().bucket();
+
+        const folderPath = 'resume'; // Replace with your desired folder path
+        const fileName = username+'.'+fileExtension;
+        const filePath = `${folderPath}/${fileName}`;
+        const file = bucket.file(filePath);
+        const stream = file.createWriteStream({
+          metadata: {
+            contentType: 'application/pdf'
+          }
+        });
+        stream.on('error', (err) => {
+          console.log(err);
+          res.status(500).send("Error uploading file");
+        });
+        let signedUrl; // Declare the variable outside the stream event handlers
+  
+        stream.on("finish", async () => {
+          // Get the signed URL for the uploaded file
+          signedUrl = await file.getSignedUrl({
+            action: 'read',
+            expires: '03-09-2025', // Set an expiration date for the URL
+          });
+          console.log("Resume Uploaded Successfully");
+
         const userJson = {
           username,
           name,
           email,
           password: hashedPassword,
           contact,
+          description,
+          education,
+          education_desc,
           address,
           age,
           profession,
           experience: 3,
           subscription: 0,
-          // resume: resumeURL,
+          resume: signedUrl,
           approved: false,
           role: 1,
         };
@@ -211,37 +253,12 @@ export const menteesRegisterController = async (req, res) => {
         await db.collection(process.env.mentorsCollectionName).doc(username).set(userJson);
         console.log('User registered successfully');
   
-        // res.status(201).send({
-        //   success: true,
-        //   message: 'User registered successfully',
-        //   user: userJson,
-        // });
-
-        const bucket = admin.storage().bucket();
-        const folderPath = 'resume';
-        const fileName = username+'.'+extension;
-        const filePath = `${folderPath}/${fileName}`;
-        const file = bucket.file(filePath);
-        const stream = file.createWriteStream({
-          metadata: {
-            contentType: 'application/pdf'
-          }
+        res.status(201).send({
+          success: true,
+          message: 'User registered successfully',
+          user: userJson,
         });
-        stream.on('error', (err) => {
-          console.log(err);
-          res.status(500).send("Error uploading file");
-        });
-
-        stream.on("finish", () => {
-          res.status(200).send({
-            success: true,
-            message: 'Mentor Registered successfully',
-            mentor: {userJson
-            },
-            filePath: filePath,
-          });
-        });
-
+      });
         stream.end(req.file.buffer);
       });
     } catch (error) {

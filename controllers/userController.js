@@ -2,7 +2,7 @@ import { admin } from "../DB/firestore.js";
 const db = admin.firestore();
 import { fapp } from "../DB/firebase.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { readAllData } from "../helper/crud.js";
+import { readSingleData, updateData } from "../helper/crud.js";
 import { sms } from "../helper/sms.js";
 import { mail } from "../helper/mail.js";
 // import * as admin from 'firebase-admin';
@@ -20,8 +20,14 @@ export const listMentorsController = async (req, res) => {
       //Validtion
       if (!username) {      
         //Retrieve user data
-        const mentorData = readAllData(process.env.mentorsCollectionName);
-    
+        const querySnapshot = await db
+          .collection(process.env.mentorsCollectionName)
+          .get();
+        let mentorData = [];
+        querySnapshot.forEach((doc) => {
+          mentorData.push(doc.data());
+        });
+        console.log(mentorData)
         //validating user
         if (!mentorData) {
           return res.status(404).send({
@@ -61,61 +67,80 @@ export const listMentorsController = async (req, res) => {
 
         const userRef = db.collection(process.env.menteesCollectionName).doc(username).get();
         const mentorSnapshot = (await userRef).data();
-        mentorSnapshot.preference.forEach(async (domain) => {
-            //Retrieve user data
-          const querySnapshot = await db
-          .collection(process.env.mentorsCollectionName)
-          .where('prerence', '==', domain)
-          .get();
-          let userData = [];
-          querySnapshot.forEach((doc) => {
-              userData.push(doc.data());
-          });
-        })
-      //Retrieve user data
-      const querySnapshot = await db
-        .collection(process.env.mentorsCollectionName)
-        .where('approved', '==', false)
-        .get();
-      let userData = [];
-      querySnapshot.forEach((doc) => {
-        userData.push(doc.data());
-      });
-  
-      //validating user
-      if (!userData) {
-        return res.status(404).send({
-          success: false,
-          message: 'No mentors still exists',
-        });
-      }
-      
-      const mentorsArray = userData.map(mentor => ({
-        [mentor.username]: {
-          "username": mentor.username,
-          "data": {
-            "profession": mentor.profession,
-            "password": mentor.password,
-            "approved": mentor.approved,
-            "address": mentor.address,
-            "role": mentor.role,
-            "contact": mentor.contact,
-            "name": mentor.name,
-            "subscription": mentor.subscription,
-            "experience": mentor.experience,
-            "email": mentor.email,
-            "age": mentor.age,
-            "username": mentor.username
+        console.log(mentorSnapshot);
+        console.log(mentorSnapshot.preference);
+        if (mentorSnapshot.preference && typeof mentorSnapshot.preference === 'object') {
+          // Iterate over properties of the preference object
+            var userData = [];
+          for (const domain in mentorSnapshot.preference) {
+            console.log(domain);
+            if (mentorSnapshot.preference.hasOwnProperty(domain)) {
+              console.log('domain: ', domain);
+              const querySnapshot = await db
+                .collection(process.env.mentorsCollectionName)
+                .where('profession', '==', mentorSnapshot.preference[domain])
+                .get();
+              querySnapshot.forEach((doc) => {
+                userData.push(doc.data());
+              });
+        
+              if (!userData) {
+                return res.status(404).send({
+                  success: false,
+                  message: 'No mentors still exists',
+                });
+              }
+              
+
+              // Process userData as needed
+              console.log(`Mentors for domain ${domain}:`, userData);
+            }
           }
+          // console.log("userdata: ", userData.map(mentor => ({}));
+
+          const mentorsArray = userData.map(mentor => ({
+            "mentor": {
+              "username": mentor.username,
+              "data": {
+                "profession": mentor.profession,
+                "password": mentor.password,
+                "approved": mentor.approved,
+                "address": mentor.address,
+                "role": mentor.role,
+                "contact": mentor.contact,
+                "name": mentor.name,
+                "subscription": mentor.subscription,
+                "experience": mentor.experience,
+                "email": mentor.email,
+                "age": mentor.age,
+                "username": mentor.username
+              }
+            }
+          }));
+          console.log(mentorsArray);
+
+          res.status(200).send({
+            success: true,
+            message: 'All Mentors List with preference',
+            mentors: {
+              mentors: mentorsArray,
+            },   
+        });
+        } else {
+          mentorSnapshot.preference.forEach(async (domain) => {
+          //Retrieve user data
+        const querySnapshot = await db
+        .collection(process.env.mentorsCollectionName)
+        .where('prerence', '==', domain)
+        .get();
+        let userData = [];
+        querySnapshot.forEach((doc) => {
+            userData.push(doc.data());
+        });
+      })
+          // console.error('Preference is not an object:', mentorSnapshot.preference);
         }
-      }));
-      res.status(200).send({
-          success: true,
-          message: 'All Mentors List with preference',
-          mentors: {
-            mentors: mentorsArray,
-          },   
-      });
+        
       }
 
       //Retrieve user data
@@ -142,10 +167,6 @@ export const listMentorsController = async (req, res) => {
         });
       }
 
-    // Reference to the Firestore document
-    const mentorRef = db.collection(process.env.mentorsCollectionName).doc(mentor_username);
-
-
       //validating user
       if (!mentorRef) {
         return res.status(404).send({
@@ -155,11 +176,9 @@ export const listMentorsController = async (req, res) => {
       }
 
     // Update the specific field in the document
-    await mentorRef.update({
-      approved: true,
-    });
+    updateData(process.env.mentorsCollectionName, mentor_username, approved, true);
   
-    const mentor_data = mentorRef.get(); 
+    const mentor_data = readSingleData(process.env.mentorsCollectionName, mentor_username);
   
       res.status(200).send({
         success: true,
@@ -187,8 +206,8 @@ export const listMentorsController = async (req, res) => {
       }
 
 
-      const userRef = db.collection(process.env.mentorsCollectionName).doc(mentor_username).get();
-      const mentorSnapshot = (await userRef).data();
+      const mentorSnapshot = await readSingleData(process.env.mentorsCollectionName, mentor_username);
+      // const mentorSnapshot = await userRef.data();
 
       console.log('success');
 

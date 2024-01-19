@@ -35,7 +35,7 @@
             <a class="nav-link active" aria-current="page" href="./subscription.html">My sessions</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./index.html">Live sessions</a>
+            <a class="nav-link" aria-current="page" href="./livesession.html">Live sessions</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./index.html">Communtiy</a>
@@ -50,8 +50,7 @@
           <button class="btn btn-outline-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         <div class="mx-2">
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-            data-bs-target="#signup">Login/Register</button>
+          
         </div>
         <a href="#"><i class="fa-regular fa-circle-user fa-2x"></i></a>
       </div>
@@ -63,24 +62,8 @@
   <div class="main_screen">
     <span class="section-title text-primary mb-3 mb-sm-4" style="position: relative; left: 140px; top: 20px;">Upcoming
       sessions</span>
-    <div class="mentorship-container_s py-4">
-      <div class="card mb-3" style="max-width: 40vw;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="images/mountainbg.png" class="img-fluid rounded-start height_set_a" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title mb-1">Card title</h5>
-              <p class="card-text mb-1">Mentor name</p>
-              <p class="card-text mb-1">29/01/2023</p>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
-              <button class="btn btn-primary">Join</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="mentorship-container_s py-4" id="sub_container">
+
 
     </div>
 
@@ -89,22 +72,8 @@
 
     <span class="section-title text-primary mb-3 mb-sm-4" style="position: relative; left: 140px; top: 20px;">Live
       sessions</span>
-    <div class="mentorship-container_s py-4">
-      <div class="card mb-3" style="max-width: 40vw;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="..." class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="mentorship-container_s py-4" id="session_cont">
+      
 
     </div>
 
@@ -175,31 +144,102 @@
       </footer>
     </div>
   </div>
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
   <script src="JS/cookie.js"></script>
   <script>
-    async function subscription_details() {
-            const options = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    username: username
-                })
-            }
-            try {
-                var subscription_details = await fetch("http://localhost:8080/api/v1/subscription/read", options);
-                var sub_json = await subscription_details.json();
-                console.log(sub_json);
-            }
-            catch (error) {
-                console.log(error)
-            }
+    async function subscription_session_details() {
+      console.log(username);
+      // username = "aryan1234" //delete
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: username
+        })
+      }
+      try {
+        var subscription_details = await fetch("http://localhost:8080/api/v1/subscription/read", options);
+        var sub_json = await subscription_details.json();
+        console.log(sub_json);
+
+        mentor_username = sub_json.mentor;
+
+        subscription_data = sub_json.session[mentor_username]
+        console.log(subscription_data);
+
+        all_cards = "";
+        function create_card(elem) {
+          date = elem.schedule._seconds;
+          act_date = new Date(date * 1000)
+          console.log(act_date)
+          card = `<div class="card mb-3" style="max-width: 40vw;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="images/mountainbg.png" class="img-fluid rounded-start height_set_a" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title mb-1">${elem.title}</h5>
+              <p class="card-text mb-1">Mentor name</p>
+              <p class="card-text mb-1 text_a">${act_date}</p>
+              <p class="card-text">${elem.description}</p>
+              <button class="btn btn-primary">Join</button>
+            </div>
+          </div>
+        </div>
+      </div>`
+          all_cards += card;
         }
-        window.onload = subscription_details;
+        subscription_data.forEach(create_card);
+        document.getElementById("sub_container").innerHTML = all_cards;
+      }
+      catch (error) {
+        console.log(error)
+      }
+      const options1 = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }
+      try {
+        var session_data = await fetch("http://localhost:8080/api/v1/session/read", options1);
+        var ses_json = await session_data.json();
+        console.log(ses_json);
+        let all_cards = ""
+        function create_card(elem) {
+          let card = `<div class="card mb-3" style="max-width: 40vw;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="images/bg.png" class="img-fluid rounded-start height_set_a" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">${elem.session.data.name}</h5>
+              <p class="card-text"><small class="text-body-secondary">${elem.session.data.date}</small></p>
+              <p class="card-text">${elem.session.data.description}</p>
+              <p class="card-text">Rs. ${elem.session.data.price}</p>
+            </div>
+          </div>
+        </div>
+      </div>`
+      all_cards += card;
+        }
+        ses_json.session.forEach(create_card);
+        document.getElementById("session_cont").innerHTML = all_cards;
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }
+
+    window.onload = subscription_session_details;
   </script>
 </body>
 

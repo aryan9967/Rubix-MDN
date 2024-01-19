@@ -144,8 +144,9 @@
             Create Offers
         </button>
     </div>
-
+    <script src="JS/cookie.js"></script>
     <script>
+        username = "admin"
         const personal = document.getElementById("personal_det");
         const experience = document.getElementById("experience_det");
         const education = document.getElementById("education");
@@ -186,6 +187,28 @@
             offer_form.style.display = "none"
         }
 
+        async function un_mentor_details() {
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: username
+                })
+            }
+            try {
+                var un_mentor_detail = await fetch("http://localhost:8080/api/v1/admin/unapproved-mentors", options);
+                var un_mentor_det_json = await un_mentor_detail.json();
+                var total_un_mentor = un_mentor_det_json.mentors.unapprovedMentors.data;
+                
+                console.log(total_un_mentor);
+            }
+            catch (error) {
+                console.log(error)
+            }
+        }
+        window.onload = un_mentor_details;
     </script>
 
 </body>
